@@ -9,6 +9,6 @@ pip install numpy
 
 Instructions for use:  
 Place nii.gz (compressed NIFTI) scans of a floret of wheat and scanning tube in the input folder (The script runs on all nii.gz files in the folder).  
-Change THE DIRECTORY STRING ON LINE 13 OF FloretCropper.py to match the location you git cloned this repository to.  
+Change the sirectory string on line 13 of FloretCropper.py to match the location you git cloned this repository to.  
 run the script.  
 cropped images of wheat grains are placed in the output folder. 
