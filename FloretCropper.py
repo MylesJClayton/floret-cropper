@@ -10,9 +10,9 @@ import SimpleITK as sitk
 import os
 import numpy as np
 import csv
-MainDirectory = "D:/Work/NPPC/Pyscripts/FloretCropper"
+MainDirectory = "PATH/TO/FOLDER/FloretCropper"
 InputDirectory = MainDirectory + "/CropperInput"
-#InputDirectory = "D:/Work/NPPC/MAIN IMAGES/UncroppedFlorets"  #This line allows the script to get input files from elsewhere (outside main directory)
+#InputDirectory = "PATH/TO/FOLDER/UncroppedFlorets"  #This line allows the script to get input files from elsewhere (outside main directory)
 OutputDirectory = MainDirectory + "/CropperOutput"
 OutputMaskDirectory = OutputDirectory + "/PlantMatter"
 ThresholdDirectory = OutputDirectory + "/Thresholded"
