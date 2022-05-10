@@ -8,7 +8,36 @@ pip install SimpleITK
 pip install numpy  
 
 Instructions for use:  
-Place nii.gz (compressed NIFTI) scans of a floret of wheat and scanning tube in the input folder (The script runs on all nii.gz files in the folder).  
-Change the sirectory string on line 13 of FloretCropper.py to match the location you git cloned this repository to.  
-run the script.  
-cropped images of wheat grains are placed in the output folder. 
+From virtual environment (such as anaconda) call the script from the command line with python 
+Windows example : >python FloretCropper.py -t -i C:/path/to/input/directory -o D:/path/to/output/directory 
+
+
+
+Arguments 
+  -h, --help            show this help message and exit
+  -i INPATH, --inpath INPATH
+                        Input directory absolute path
+  -o OUTPATH, --outpath OUTPATH
+                        Output directory absolute path
+  -t, --troubleshoot    Save images of intermediate steps threshold, components, and mask 
+
+
+Methodology  
+The script makes a note of each nii.gz file in the input directory and the following process is applied for each one: 
+-Image is read 
+-Otsu filter determines threshold based on intensity histogram, this seperates dense objects from background (scan tube and grain) 
+-A binary mask of forground/background is made * 
+-Objects not connected to each other are labelled from 1 to n according to size (largest is 1) * 
+-2nd largest object is assumed to be ROI (scan tube is always largest object in the image) and mask is made * 
+-A bounding box of the grain is obtained and expanded to include surroundings (other floral organs) 
+-Bounding box volume is extracted/cropped out and saved 
+-Voxel size of plantmatter and bounding box dimensions are recorded in a .csv 
+-Cropped image of wheat grain is placed in the output folder 
+-If --troubleshoot -t is specified, images of (potentially error prone) intermediate steps (*) are saved
+
+
+
+
+
+
+
