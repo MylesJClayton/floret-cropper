@@ -2,18 +2,21 @@
 Computer vision tool for detecting and cropping wheat florets from 3D-μCT scans.  
 Cropping the volumes massively reduces required stroage space to about 1/20 of the original. The smaller images can also be processed by 3D-CNNs.  
 
-##Dependencies:  
+## Dependencies:  
 pip install itk  
 pip install SimpleITK  
 pip install numpy  
 
-##Instructions for use:  
-From virtual environment (such as anaconda) call the script from the command line with python 
+## Instructions for use:  
+From virtual environment (such as anaconda) call the script from the command line with python. 
 Windows example : >python FloretCropper.py -t -i C:/path/to/input/directory -o D:/path/to/output/directory 
+ 
+Note: * When using -i and -o, A backslash is used to denote subdirectories on both Linux and Windows *
 
 
 
-##Arguments 
+
+## Arguments 
 ```
   -h, --help            show this help message and exit
   -i INPATH, --inpath INPATH
@@ -23,7 +26,7 @@ Windows example : >python FloretCropper.py -t -i C:/path/to/input/directory -o D
   -t, --troubleshoot    Save images of intermediate steps threshold, components, and mask 
 ```
 
-##Methodology  
+## Methodology  
 The script makes a note of each nii.gz file in the input directory and the following process is applied for each one: 
 - Image is read 
 - Otsu filter determines threshold based on intensity histogram, this seperates dense objects from background (scan tube and grain) 
