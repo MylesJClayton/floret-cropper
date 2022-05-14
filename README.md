@@ -23,7 +23,8 @@ Note: * When using -i and -o, A backslash is used to denote subdirectories on bo
                         Input directory absolute path
   -o OUTPATH, --outpath OUTPATH
                         Output directory absolute path
-  -t, --troubleshoot    Save images of intermediate steps threshold, components, and mask 
+  -t, --troubleshoot    Save images of intermediate steps threshold, components, and mask
+  -n, --normalize       Normalize cropped images to have zero mean and unit variance across all voxels 
 ```
 
 ## Methodology  
@@ -38,6 +39,9 @@ The script makes a note of each nii.gz file in the input directory and the follo
 - Voxel size of plantmatter and bounding box dimensions are recorded in a .csv 
 - Cropped image of wheat grain is placed in the output folder 
 - If --troubleshoot -t is specified, images of (potentially error prone) intermediate steps (*) are saved
+- If --normalize -n is specified, cropped images will also be normalized to have zero mean and unit variance across all inputs
+	(recommended for preprocessing images for machine learning algorithms)
+
 
 
 
